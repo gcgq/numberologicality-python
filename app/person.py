@@ -1,27 +1,7 @@
-class NumberCruncher(object):
-    def parse_name(input=""):
-        total_count, vowel_count, consonant_count = {}, {}, {}
-        reduced_numbers
-
-        name_chars = list(input.lower().strip(" \s\t\r"))
-        #print(name)
-
-    def life_path():
-        pass
-    def destiny():
-        pass
-    def hearts_desire():
-        pass
-    def personality():
-        pass
-    def pinnacle():
-        pass
-    def challenge():
-        pass
-
 import string
 import re
-
+import .letter
+import .number_cruncher
 class Person(object):
     pass
     def __init__(self, name, dob):
@@ -40,7 +20,3 @@ class Person(object):
             else:
                 cleaned_name = cleaned_name.replace(char, "")
         cleaned_name = re.sub('\s+', ' ', cleaned_name)
-
-class Numberologicality(object):
-    def __init__(self, dob="", name=""):
-        pass
