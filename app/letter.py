@@ -1,6 +1,5 @@
 class Letter(object):
     def __init__(self, l):
-        l = l.lower()
         if self.is_letter(l):
             self.letter = l
 
@@ -30,7 +29,7 @@ class Letter(object):
         vowels = ('a','e','i','o','u')
         return True if self.letter in vowels else False
 
-    def get_value(self, type):
+    def get_value(self, type='pythagorean'):
         for key in Letter.values[type].keys():
             if self.letter in key:
                 return Letter.values[type][key]

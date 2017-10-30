@@ -1,6 +1,5 @@
 import string, unicodedata, re
 from dateutil.parser import parse as parse_dob
-import letter
 import number_cruncher as nc
 class PersonData(object):
     def __init__(self, name, dob):
@@ -15,7 +14,6 @@ class PersonData(object):
     def normalize_name(self, name):
         result = name
         for char in name:
-            print(char)
             #clean input, but preserve capitalization and some formatting for display.
             #Letters, apostrophes, hyphens, and spaces get a pass,
             #as they are used in names. Periods and commas are removed.
@@ -39,12 +37,13 @@ class PersonData(object):
         # print("input: {}".format(name))
         # print("output: {}".format(result))
         return result
-    def process_name(self, type="pythagorean"):
-        keys = ({"core":["life_path","destiny","hearts_desire","personality"]},
-                {"minor":[]},
-                "pinnacles", "challenges"
-                )
-        self.numbers
+    def process_data(self):
+        name_keys = ("destiny","soul_urge","personality")
+        date_keys = ("life_path", "pinnacles", "challenges")
+        for key in name_keys:
+            self.number[key] = nc.calculate[key](self.name)
+        for key in date_keys:
+            self.number[key] = nc.calculate[key](self.date_of_birth)
 
     def to_json(self):
         pass
