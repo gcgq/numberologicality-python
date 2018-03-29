@@ -1,3 +1,6 @@
+# This script takes stuff from scraper-data.json, runs it through the numerology app,
+# and posts it to Firebase using Pyrebase
+
 from app.person_data import PersonData
 import pyrebase
 import config
