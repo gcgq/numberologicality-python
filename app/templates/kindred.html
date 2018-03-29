@@ -1,0 +1,26 @@
+{% extends "report.html" %}
+
+{% block kindred %}
+<section class="kindred">
+    <ul>
+        {% for knd in k %}
+            {% if knd.public_name != knd.name %}
+                <li><a href="{{knd.url}}">{{knd.public_name}}</a></li>
+                <li><em>Born {{knd.name}}</em></li>
+            {% else %}
+                <li><a href="{{knd.url}}">{{knd.name}}</a></li>
+            {% endif %}
+            <li>{{knd.dob}}</li>
+            {% if knd.occupation %}
+                <li><em>{{knd.occupation}}</em></li>
+            {% endif %}
+                <ul>
+                    <li>{{knd.destiny}}</li>
+                    <li>{{knd.soul_urge}}</li>
+                    <li>{{knd.personality}}</li>
+                    <li>{{knd.life_path}}</li>
+                </ul>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock kindred %}

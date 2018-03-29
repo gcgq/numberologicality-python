@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+
+{% block main %}
+{% if data.name %}
+    <div id="name">
+        <div class="bigname">
+            <h1 data-text="{{data.name}}">{{data.name}}</h1>
+            }
+        </div>
+        <h3 data-text="{{data.dob| date}}">{{data.dob | date}}</h3>
+    </div>
+{% endif %}
+<section class="numbers">
+    {% block core_numbers %}
+        {% for num in s['core_numbers'] %}
+            <div class="number core-number color-{{data.numbers[num]}}" id="{{s['labels'][num]['id']}}">
+                <h1 data-text="{{data.numbers[num]}}">{{data.numbers[num]}}</h1>
+                <h3 data-text="{{s['labels'][num]['name']}}">{{s['labels'][num]['name']}}</h3>
+                <div class="breakdown {{s['labels'][num]['id']}}">
+                  <h4>
+                    {% for str in data['breakdown'][s['labels'][num]['bd_str']] %}
+                        <pre>{{str}}</pre>
+                    {% endfor %}
+                  </h4>
+                </div>
+            </div>
+        {% endfor %}
+    {% endblock core_numbers %}
+    {% if s['pinnacles'] %}
+
+
+    {% endif %}
+    {% if s['challenges'] %}
+
+
+    {% endif %}
+</section>
+{% for n in s['core_numbers'] %}
+<section class="interp">
+    <h4 class="color-{{data.numbers[n]}}">{{s['labels'][n]['name']}} {{data.numbers[n]}}</h4>
+        <p>
+            {{ni[n]}}
+        </p>
+        <div class="kindred" id="kin-{{n}}">
+            <a href="#!" onclick='showKin(this)'>People with this number:</a>
+            <ul class="kin-list"  style="display:none;">
+                {% for knd in k[n][0:24] %}
+                    <div class="kin">
+                        {% if knd['public_name'] != knd['name'] %}
+                            <a href="{{knd['url']}}"> {{knd['public_name']}}</a>
+                            <li><em>Born {{knd['name']}}</em></li>
+                        {% else %}
+                            <li><a href="{{knd['url']}}">{{knd['name']}}</a></li>
+                        {% endif %}
+                        <li>{{knd['dob']}}</li>
+                        {% if knd['occupation'] %}
+                            <li><em>{{knd['occupation']}}</em></li>
+                        {% endif %}
+                        <ul>
+                            <li>Destiny: {{knd['destiny']}}</li>
+                            <li>Soul Urge: {{knd['soul_urge']}}</li>
+                            <li>Personality: {{knd['personality']}}</li>
+                            <li>Life Path: {{knd['life_path']}}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+    {% if s['pinnacles'] %}
+
+
+    {% endif %}
+    {% if s['challenges'] %}
+
+
+    {% endif %}
+</section>
+{% endfor %}
+{% endblock main %}

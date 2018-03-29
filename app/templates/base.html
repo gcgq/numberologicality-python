@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="icon"
+ href="{{url_for('static', filename='img/favicon.ico')}}">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <script defer src="{{url_for('static', filename='js/numjax.js')}}"></script>
+        <!-- <link rel="stylesheet" href="./fontawesome.min.css"> -->
+        <title>Numberologicality</title>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <header>
+              <nav>
+                <ul>
+                  <li>Numberologicality</li>
+                  <li>home</li>
+                  <li>info</li>
+                  <li>contact</li>
+                </ul>
+              </nav>
+              <div class="title">
+                <h1>Numberologicality</h1>
+              </div>
+            </header>
+            {% block main %}
+
+            {% endblock main %}
+            <footer>
+              <p>
+                &copy;20XX Blahblahblah
+              </p>
+            </footer>
+            {% include 'partials/user-input.html' %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block main %}
+    {% block core_numbers %}
+
+    {% endblock core_numbers %}
+    {% if not data %}
+        {% include 'partials/info.html' %}
+    {% endif %}
+
+{% endblock main %}

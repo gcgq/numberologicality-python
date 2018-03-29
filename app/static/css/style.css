@@ -1,0 +1,547 @@
+:root{
+  --color-1: #c22424;
+  --color-2: #ffc14d;
+  --color-3: #ffff99;
+  --color-4: #80ff80;
+  --color-5: #8080ff;
+  --color-6: #bf66ff;
+  --color-7: #ff66ff;
+  --color-8: pink;
+  --color-9: #ffec80;
+  --color-11: #ff3333;
+  --color-22: silver;
+  --color-33: #eed490;
+}
+
+@font-face {
+    font-family: 'Canter Bold';
+    src: url("../font/Canter Bold.otf");
+}
+@font-face {
+    font-family: 'Canter Bold 3D';
+    src: url("../font/Canter Bold 3D.otf");
+}
+@font-face {
+    font-family: 'Canter Bold Shadow';
+    src: url("../font/Canter Bold Shadow.otf");
+}
+@font-face {
+    font-family: 'Canter Bold Strips';
+    src: url("../font/Canter Bold Strips.otf");
+}
+@font-face {
+    font-family: 'Canter Light';
+    src: url("../font/Canter Light.otf");
+}
+@font-face {
+    font-family: 'San Francisco Display';
+    src: url("../font/SanFranciscoDisplay-Regular.otf");
+}
+@font-face {
+    font-family: Input Mono Compressed;
+    src: url("../font/InputMonoCompressed-Regular.ttf");
+}
+
+body{
+  background-image: url("../img/numbers-wallpaper-1366x768.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+html body{
+  margin:0;
+  padding:0;
+}
+section{
+  margin: 10px;
+}
+
+.numbers{
+  display: grid;
+  grid-gap: 20px;
+  grid-gap: 10px;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  'dest soul pers life';
+}
+
+header .title, .info, .interp {
+  background-image: url("../img/77494228old-metal-numbers.jpg");
+  background-attachment: fixed;
+  margin-left:auto;
+  margin-right: auto;
+  width: 75%;
+}
+.interp{
+  background-image:none;
+  background-color: gray;
+}
+header .title h1 {
+  font: 5rem 'Canter Bold 3D';
+  text-align:center;
+  color: dimgray;
+  background-color: rgba(255,255,255,0.95);
+  border: 1px solid rgb(244,244,244);
+  width:auto;
+}
+
+.title h1, .info, .interp, .number {
+  box-shadow: 6px 6px 2px rgb(80,80,80);
+}
+
+div#name{
+  box-shadow: 0 7px 4px rgb(70,70,72);
+}
+
+.info, .interp, .number{
+  box-shadow: 3px 3px 2px rgb(75,75,75);
+}
+/*.breakdown{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'letters consonants vowels birthdate';
+}*/
+header{
+  width: 100%;
+
+}
+nav, footer{
+  padding-top: 5px;
+  display: block;
+  background-color:rgb(50,50,50);
+  font: 1.5rem 'Canter Light', sans-serif;
+}
+
+nav ul, nav ul li{
+  display: inline;
+  margin: 0;
+  padding-left:10px;
+  color: rgb(200,200,200);
+}
+
+#name{
+  background-color: rgb(20,20,20);
+  margin-bottom:20px;
+}
+#name h1, #name h3 {
+  font:4.75em 'Canter Bold';
+  text-align: center;
+  color:white;
+  overflow:hidden;
+  margin:0;
+}
+#name h3{font-size: 3.5em}
+
+#name h1::before, #name h3::before {
+  position: absolute  ;
+  content: attr(data-text);
+  font-family:'Canter Bold Strips';
+  color:gray;
+}
+
+.number{
+  overflow:hidden;
+}
+.number h1, .number, h3 {
+  text-align: center;
+}
+.number h1 {
+  font-size: 4rem;
+  padding: 1rem 0 0 0;
+  margin: 0;
+}
+
+div {
+  display:block;
+  position: relative;
+}
+
+.number h3, .info h3 {
+  font: 3rem 'Canter Bold';
+  color:rgba(0,0,0,1);
+  padding: 0;
+  margin: 0;
+}
+
+.number h3::before, .info h3::before {
+  position:absolute;
+  content: attr(data-text);
+  font-family:'Canter Bold Shadow';
+  color:rgba(169,169,169,1);
+}
+
+.number h1 {
+  font:5em 'Canter Bold';
+  color:rgba(0,0,0,1);
+}
+
+.number h1::before {
+  position:absolute  ;
+  content: attr(data-text);
+  font-family:'Canter Bold Strips';
+  color: gray;
+}
+
+form{
+  display: grid;
+  grid-template-columns:  2fr 2fr 1fr;
+  grid-template-areas: 'name bday sbmt';
+}
+
+.user-input{
+  margin:0;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  background-color:rgb(128,128,128);
+  padding: 5px;
+  border-top: 1px solid lightgray;
+  color: rgb(250,250,250);
+}
+
+
+i {
+  animation: menu-arrow 1s infinite alternate;
+  animation-timing-function: ease-in-out;
+  clip-path:circle(0.90rem);
+  padding: 0 5px;
+}
+@keyframes menu-arrow{
+  from {
+    color: rgb(255,255,200);
+    background-color:rgb(64, 200, 0);
+  }
+  to{
+    background-color: rgb(128,128,128);
+    color: rgb(128, 255, 0);
+  }
+}
+
+.user-input form{
+  margin-left:5%;
+  margin-right:5%;
+  margin-bottom:0.3rem;
+  padding: 0.1rem;
+}
+form .name {
+  margin: 0 5px;
+  padding: 0 5px;
+  grid-area: name;
+  grid-template-columns: 2fr;
+}
+form .dob{
+  margin: 0 5px;
+  padding: 0 5px;
+  grid-area: bday;
+  grid-template-columns: 2fr;
+}
+form .submit{
+  grid-area: sbmt;
+  grid-template-columns: 1fr;
+}
+
+form{
+  font: 1.75rem 'Canter Bold';
+}
+
+form input{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed black;
+  width: 100%;
+  max-width:70%;
+  font: 1.2rem 'San Francisco Display';
+  text-align: center;
+}
+
+.dob input {
+  border: none;
+}
+
+form .submit{
+  height:100%;
+}
+
+input[type="submit"]{
+  width: 100%;
+  height:100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 10px;
+  color: rgb(230,230,80);
+  background-color: rgb(20, 90, 20);
+  transition: color, background-color .5s;
+  animation: btn-border 1s infinite alternate;
+  animation-timing-function: ease-in-out;
+}
+input[type="submit"]:hover{
+  color: white;
+  background-color: rgb(60, 130, 40);
+  border: none;
+}
+
+@keyframes btn-border{
+  from {
+    border: 2px rgb(230,255,0) solid;
+/*    color: rgb(255,255,200);
+    background-color:rgb(64, 200, 0);*/
+  }
+  to{
+    border: 2px rgb(64,200,0) solid;
+/*    background-color: rgb(128,128,128);
+    color: rgb(128, 255, 0);*/
+  }
+}
+
+.numbers .color-1 {background-color: var(--color-1)}
+.numbers .color-2 {background-color: var(--color-2)}
+.numbers .color-3 {background-color: var(--color-3)}
+.numbers .color-4 {background-color: var(--color-4)}
+.numbers .color-5 {background-color: var(--color-5)}
+.numbers .color-6 {background-color: var(--color-6)}
+.numbers .color-7 {background-color: var(--color-7)}
+.numbers .color-8 {background-color: var(--color-8)}
+.numbers .color-9 {background-color: var(--color-9)}
+.numbers .color-11 {background-color: var(--color-11)}
+.numbers .color-22 {background-color: var(--color-22)}
+.numbers .color-33 {background-color: var(--color-33)}
+
+#life{
+  grid-area: life;
+  /*background-color: skyblue;*/
+  color: black;
+  padding:5px;
+}
+/*#life h1{
+  animation: text-lighten 5s infinite alternate;
+}*/
+#dest{
+  grid-area: dest;
+  /*background-color: lightgrey;*/
+  color: black;
+  padding:5px;
+}
+#soul{
+  grid-area: soul;
+  /*background-color: beige;*/
+  color: black;
+  padding:5px;
+}
+#pers{
+  grid-area: pers;
+  /*background-color: pink;*/
+  color: black;
+  padding:5px;
+}
+
+.breakdown .name{
+  grid-area: name;
+}
+
+.breakdown .bday{
+  grid-area: bday;
+}
+
+name-breakdown {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 'name bday';
+}
+
+.breakdown h4 pre{
+  font-family: 'Input Mono Compressed', monospace;
+  font-weight: lighter;
+
+}
+.info h3, .info ul, .info p, .inpterp p, .interp h4{
+  background-color: rgba(255,255,255, 0.95);
+  margin:0;
+  padding:1rem;
+}
+
+.interp { border-top: 1px solid lightgray; }
+
+.interp .color-1 {color: var(--color-1)}
+.interp .color-2 {color: var(--color-2)}
+.interp .color-3 {color: var(--color-3)}
+.interp .color-4 {color: var(--color-4)}
+.interp .color-5 {color: var(--color-5)}
+.interp .color-6 {color: var(--color-6)}
+.interp .color-7 {color: var(--color-7)}
+.interp .color-8 {color: var(--color-8)}
+.interp .color-9 {color: var(--color-9)}
+.interp .color-11 {color: var(--color-11)}
+.interp .color-22 {color: var(--color-22)}
+.interp .color-33 {color: var(--color-33)}
+
+.interp h4{text-shadow: 1px 1px 1px rgba(50,50,55,1);}
+
+.kindred a {
+  display: block;
+  text-align: center;
+  padding: 2px;
+}
+.kindred{
+  padding-bottom:5px;
+  background-color: rgba(235,235,248, 0.8)
+}
+
+.kin-list {
+  list-style-type: none;
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 'kin';
+  grid-gap:5px;
+}
+
+.kin { grid-area:'kin'; }
+
+.kin a { display: inline; }
+
+.interp p, .interp h4 {
+  padding: 10px 15px 10px 15px;
+  background-color: rgb(235,235,248);
+  margin:0;
+}
+
+
+.info, .interp{
+  font-family: 'San Francisco Display', sans-serif;
+  font-weight: 300;
+  width:66%;
+}
+
+.info h3{
+  padding-top: 1.5rem;
+}
+.info ul{
+  list-style: none;
+  padding-left: 2rem;
+}
+.info li{
+  padding: 0.5rem;
+}
+.info ul li p {
+  background-color:rgba(255,255,255,0.6);
+  padding: 5px 10px 5px 10px;
+}
+
+.celebs a{
+  font-size: 1rem;
+  font-family: 'San Francisco Display', sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  color: #333;
+}
+
+footer{
+  background-color:rgb(50,50,50);
+  color: rgb(200,200,200);
+  margin:0;
+  padding-top: 0.5rem;
+  padding-bottom: 5rem;
+}
+footer p{
+  padding-right: 10px;
+  margin: 0;
+  float: right;
+}
+
+@media (max-width: 700px){
+  header .title{
+    width: 100%;
+  }
+
+  .numbers{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'dest soul'
+    'pers life';
+  }
+
+  form{
+    grid-template-columns: 1fr;
+    grid-template-areas: 'name' 'bday' 'sbmt';
+    padding: 0;
+    width: 100%;
+  }
+
+  form input{
+    float:right;
+    padding-right: 10px;
+    margin-right: 10px;
+    width: 60%;
+  }
+
+  input[type="submit"] {
+    width:95%;
+    height: 2rem;
+    margin: 5px 5px;
+    padding: 0 5px;
+  }
+
+  .breakdown{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'letters consonants' 'vowels birthdate';
+  }
+
+  footer, footer p{
+    padding-bottom: 7.5rem;
+  }
+
+  .info, .interp{
+    width:100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align:justify;
+  }
+
+  .kin-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 500px){
+  header .title h1  {
+    font-size: 4rem;
+  }
+  #name h1, #name h3 {
+    text-shadow: 2px 2px 0px dimgray;
+  }
+  #name h1::before, #name h3::before{
+    display: none;
+  }
+  .numbers {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'dest''soul''pers''life';
+  }
+  form input{
+    float:right;
+    padding-right: 5px;
+    width: 50%;
+  }
+  .user-input, .user-input form, form div{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  form label{ padding-left: 20px; }
+
+  form {margin-top: 5px;}
+  .breakdown{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'letters' 'consonants' 'vowels' 'birthdate';
+  }
+
+  .kin-list {
+    grid-template-columns: 1fr;
+  }
+
+}
