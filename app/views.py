@@ -31,7 +31,7 @@ def submit_form():
     person = PersonData(name=d['name'], dob=d['dob'])
     firebase.database().child('/data_from_users').\
         child(firebase.database().generate_key()).\
-        set(person.get_json())
+        set(person.get_json(pyrebase=True))
     person = person.get_data()
     # retrieve relevant interpretations from config, then pass it to the template
     kindred = get_kindred(person)

@@ -130,8 +130,8 @@ class PersonData(object):
             'breakdown': self.breakdown_strings
         }
 
-    def get_json(self):
-        json_data = json.dumps({
+    def get_json(self, pyrebase=False):
+        json_data = {
             'name': self.name,
             'dob': self.date_of_birth.date().isoformat(),
             'life_path': self.numbers['life_path'],
@@ -142,6 +142,9 @@ class PersonData(object):
             'challenges': self.numbers['challenges'],
             'input': self.raw_input,
             'bd_str': self.breakdown_strings['all']
-        })
+        }
+        if not pyrebase:
+            json_data = json.dumps(json_data)
+
         # print(json_data)
         return json_data
